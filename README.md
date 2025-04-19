@@ -138,4 +138,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ---
 
-Feito com 💙 por [Vinícius Guilherme Batista](https://github.com/seu-usuario)
+Feito com 💙 por [Vinícius Guilherme Batista](https://github.com/Vini-Dev-Py)
