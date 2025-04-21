@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"api-wave-bot/internal/presentation/domain"
 	"api-wave-bot/internal/presentation/repository"
 	"context"
 	"errors"
@@ -49,7 +50,7 @@ func (c *AuthController) Login(ctx context.Context, email, password string) (str
 	}
 
 	// Gerar JWT
-	token, err := c.generateJWT(user.ID)
+	token, err := c.generateJWT(user)
 	if err != nil {
 		return "", nil, err
 	}
@@ -66,11 +67,14 @@ func (c *AuthController) Login(ctx context.Context, email, password string) (str
 }
 
 // Função para gerar o JWT
-func (c *AuthController) generateJWT(userID string) (string, error) {
+func (c *AuthController) generateJWT(user *domain.User) (string, error) {
 	// Define os claims (informações contidas no JWT)
 	claims := jwt.MapClaims{
-		"sub": userID,
-		"exp": time.Now().Add(time.Hour * 24).Unix(), // O token expira em 24h
+		"id":        user.ID,
+		"name":      user.Name,
+		"email":     user.Email,
+		"companyId": user.CompanyID,
+		"exp":       time.Now().Add(time.Hour * 24).Unix(), // O token expira em 24h
 	}
 
 	// Cria o token com as informações e assina com o segredo
