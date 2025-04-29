@@ -18,25 +18,6 @@ O objetivo é permitir que empresas criem **workflows visuais** para envio de me
 
 ---
 
-## 🧱 Estrutura do Projeto
-
-```
-api-wave-bot/
-├── cmd/                  # Entrypoint da aplicação
-├── config/               # Configurações (env, logger, etc.)
-├── controllers/          # Handlers e endpoints
-├── routes/               # Definição de rotas
-├── services/             # Regras de negócio
-├── models/               # Models e schemas
-├── database/             # Conexão e migrações
-├── utils/                # Funções auxiliares
-├── go.mod / go.sum       # Gerenciador de dependências
-├── .env                  # Variáveis de ambiente
-├── Dockerfile            # Imagem da aplicação
-├── docker-compose.yml    # Ambiente completo com PostgreSQL
-└── .air.toml             # Configuração do hot reload
-```
-
 ---
 
 ## 🚀 Como rodar localmente
