@@ -2,7 +2,7 @@
 
 API desenvolvida em Go puro para gerenciamento de **fluxos de automação no WhatsApp**, inspirada em ferramentas como **n8n** e **BotConversa**. Essa aplicação é o backend do projeto **Wave Bot**, integrado ao frontend `app-wave-bot`, baseado em React Flow.
 
-O objetivo é permitir que empresas criem **workflows visuais** para envio de mensagens, coleta de respostas e ações automatizadas por meio da API oficial do WhatsApp.
+O objetivo é permitir que empresas criem **workflows visuais** para envio de mensagens, coleta de respostas e ações automatizadas por meio do WhatsApp.
 
 ---
 
