@@ -1,20 +1,20 @@
 package handlers
 
 import (
-	"api-wave-bot/internal/presentation/http/controllers"
+	"api-wave-bot/internal/presentation/http/services"
 	"encoding/json"
 	"net/http"
 )
 
 // AuthHandler é responsável por gerenciar as requisições de autenticação.
 type AuthHandler struct {
-	Controller *controllers.AuthController
+	Service *services.AuthService
 }
 
-// NewAuthHandler cria uma nova instância de AuthHandler com o controller injetado.
-func NewAuthHandler(controller *controllers.AuthController) *AuthHandler {
+// NewAuthHandler cria uma nova instância de AuthHandler com o serviço injetado.
+func NewAuthHandler(service *services.AuthService) *AuthHandler {
 	return &AuthHandler{
-		Controller: controller,
+		Service: service,
 	}
 }
 
@@ -33,7 +33,8 @@ func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	token, user, err := h.Controller.Login(r.Context(), credentials.Email, credentials.Password)
+	// Chama o serviço para validar e gerar o JWT
+	token, user, err := h.Service.Login(r.Context(), credentials.Email, credentials.Password)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnauthorized)
 		return

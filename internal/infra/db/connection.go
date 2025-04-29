@@ -1,7 +1,7 @@
 package db
 
 import (
-	"api-wave-bot/internal/presentation/config"
+	"api-wave-bot/internal/config"
 	"database/sql"
 	"fmt"
 	"log"

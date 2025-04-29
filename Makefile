@@ -9,7 +9,7 @@ DOCKER_SERVICE=api
 
 # Rodar o projeto com Docker
 dev:
-	$(DOCKER_COMPOSE) up --build
+	$(DOCKER_COMPOSE) up -d --build
 
 # Parar e remover containers
 stop:

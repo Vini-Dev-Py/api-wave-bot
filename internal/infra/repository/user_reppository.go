@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"api-wave-bot/internal/presentation/domain"
+	"api-wave-bot/internal/domain"
 	"context"
 	"database/sql"
 	"errors"
