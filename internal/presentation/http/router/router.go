@@ -9,7 +9,7 @@ import (
 )
 
 // SetupRouter configura as rotas principais da aplicação
-func SetupRouter(authContainer *container.AuthContainer) *mux.Router {
+func SetupRouter(authContainer *container.AuthContainer, userContainer *container.UserContainer) *mux.Router {
 	router := mux.NewRouter()
 
 	// Health Check
@@ -19,6 +19,7 @@ func SetupRouter(authContainer *container.AuthContainer) *mux.Router {
 
 	// Rotas de autenticação
 	routes.RegisterAuthRoutes(router, authContainer)
+	routes.RegisterUserRoutes(router, userContainer, authContainer)
 
 	return router
 }

@@ -21,7 +21,9 @@ func main() {
 	defer conn.Close()
 
 	authContainer := container.NewAuthContainer(conn, os.Getenv("JWT_SECRET"))
-	routes := router.SetupRouter(authContainer)
+	userContainer := container.NewUserContainer(conn)
+
+	routes := router.SetupRouter(authContainer, userContainer)
 
 	log.Printf("Servidor rodando em http://localhost:%s", cfg.Port)
 	err = http.ListenAndServe(":"+cfg.Port, routes)
